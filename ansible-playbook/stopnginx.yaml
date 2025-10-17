@@ -1,0 +1,13 @@
+- hosts: webservers
+  become: true
+  tasks:
+ 
+  - name: unstalling nginx software
+    apt:
+      name: nginx
+      state: absent
+
+  - name: end nginx service
+    service:
+      name: nginx
+      state: stopped

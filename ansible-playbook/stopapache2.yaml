@@ -1,0 +1,10 @@
+- hosts: webservers #here ensure that node instance 
+  become: true
+  tasks:
+
+
+  - name: Stop apache2 service
+    service:
+      name: apache2
+      state: stopped
+      enabled: yes

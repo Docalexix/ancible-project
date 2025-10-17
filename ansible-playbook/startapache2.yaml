@@ -1,0 +1,13 @@
+- hosts: webservers #here ensure that node instance 
+  become: true
+  tasks:
+  - name: Install apache2 using Ansible Playbook
+    package:
+      name: apache2
+      state: present
+
+  - name: Start apache2 service
+    service:
+      name: apache2
+      state: started
+      enabled: yes
