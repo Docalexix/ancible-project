@@ -1,0 +1,17 @@
+- hosts: webservers
+  become: true
+  vars:
+   appname: nginx
+   appstatus: absent
+
+  tasks:
+ 
+  - name: unstalling "{{appname}}" software
+    apt:
+      name: "{{appname}}"
+      state: "{{appstatus}}"
+
+  - name: end "{{appname}}" service
+    service:
+      name: "{{appname}}"
+      state: stopped
